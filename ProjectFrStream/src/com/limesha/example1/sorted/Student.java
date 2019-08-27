@@ -1,4 +1,4 @@
-package com.limesha.example1;
+package com.limesha.example1.sorted;
 
 import java.util.ArrayList;
 import java.util.List;

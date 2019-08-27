@@ -12,8 +12,9 @@ public class Filter {
 
 	static void printWithFilter() {
 		
-		List<Student> students=Student.getStudents().stream().
-				filter(s->s.getName().length()<=5).collect(Collectors.toList());
+		List<Student> students=Student.getStudents().stream()
+				.filter(s->s.getName().length()<=5).collect(Collectors.toList());
+		
 		System.out.println(students);
 	}
 	
@@ -21,21 +22,28 @@ public class Filter {
 		
 		Student.getStudents().stream()
 		.map(s->new Student("Dr "+s.getName(),s.getId()))
-		.collect(Collectors.toList()).forEach(s->System.out.println(s));
+		.collect(Collectors.toList()).forEach(s->System.out.println(s.getName()));
+		
 	}
+	
+	
+	
+	
 	static void getCount() {
 		System.out.println("Count is : "+Student.getStudents().stream().count());
 		
 	}
 	static void getLastStudent() {
-		System.out.println("Last Studnet is : "+Student.getStudents().stream().max((Student s1,Student s2)->s1.getName().compareTo(s2.getName())));
+		System.out.println("Last Studnet is : "+
+	Student.getStudents().stream().max(( s1, s2)->s1.getName().compareTo(s2.getName())));
 		
 	}
 	static void getFirstStudent() {
-		System.out.println("Get First Student (by Comparing() ) "+Student.getStudents().stream().min(Comparator.comparing(s->s.getId())));
+		System.out.println("Get First Student (by Comparing() ) "+
+	
+		Student.getStudents().stream().min(Comparator.comparing(s->s.getId())));
 	}
 	static void printStudentAsUsual() {
-		
 		List<Student> students = Student.getStudents();
 		for(Student student : students) {
 			if(student.getName().length()<=5) {
